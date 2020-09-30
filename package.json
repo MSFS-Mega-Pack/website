@@ -1,17 +1,19 @@
 {
-  "name": "gatsby-material-ui-business-starter",
-  "version": "1.0.1",
-  "author": "Peter Bray <peter@foxandgeese.com>",
+  "name": "livery-megapack-website",
+  "version": "0.1.0",
+  "author": {
+    "name": "David Wheatley",
+    "email": "megapack@davwheat.dev",
+    "url": "https://github.com/davwheat"
+  },
   "description": "Beautiful Gatsby Material Design Business Starter",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
-    "lint": "eslint src/ && prettier --check 'src/**/*.js'",
-    "fix": "eslint --fix src/ && prettier --write 'src/**/*.js'",
-    "start": "npm run develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "yarn develop",
     "build": "gatsby build --prefix-paths",
-    "serve": "gatsby serve",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "serve": "gatsby serve"
   },
   "dependencies": {
     "@material-ui/core": "4.11.0",

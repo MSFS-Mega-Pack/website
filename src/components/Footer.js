@@ -1,9 +1,9 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
-import Hidden from "@material-ui/core/Hidden";
-import withStyles from "@material-ui/styles/withStyles";
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import Divider from '@material-ui/core/Divider'
+import Typography from '@material-ui/core/Typography'
+import Hidden from '@material-ui/core/Hidden'
+import withStyles from '@material-ui/styles/withStyles'
 
 const styles = theme => ({
   divider: {
@@ -12,9 +12,9 @@ const styles = theme => ({
   },
   footer: {
     marginBottom: theme.spacing(3),
-    whiteSpace: "nowrap",
+    whiteSpace: 'nowrap',
   },
-});
+})
 
 const Footer = withStyles(styles)(props => {
   const {
@@ -27,30 +27,28 @@ const Footer = withStyles(styles)(props => {
         },
       },
     },
-  } = props;
+  } = props
   return (
     <>
       <Divider className={classes.divider} />
       <footer className={classes.footer} id="footer">
         <span>
           <Typography component="span" variant="caption">
-            ©{new Date().getFullYear()} {title}{" "}
-            <Hidden only={["xs", "sm"]}>–</Hidden>
-            <Hidden only={["xl", "lg", "md"]}>
+            ©{new Date().getFullYear()} {title} <Hidden only={['xs', 'sm']}>–</Hidden>
+            <Hidden only={['xl', 'lg', 'md']}>
               <br />
-            </Hidden>{" "}
+            </Hidden>{' '}
             {email} – {phone}
             <br />
             &middot;
             <br />
-            Starter created by{" "}
-            <a href="https://foxandgeese.com">Fox and Geese</a>
+            Starter created by <a href="https://foxandgeese.com">Fox and Geese</a>
           </Typography>
         </span>
       </footer>
     </>
-  );
-});
+  )
+})
 
 export default () => (
   <StaticQuery
@@ -69,4 +67,4 @@ export default () => (
     `}
     render={data => <Footer data={data} />}
   />
-);
+)

@@ -1,24 +1,16 @@
 // See https://github.com/mui-org/material-ui/tree/master/examples/gatsby
 
-const React = require("react"),
-  { renderToString } = require("react-dom/server"),
-  StylesProvider = require("@material-ui/styles/StylesProvider").default,
-  getPageContext = require("./src/utils/getPageContext").default;
+const React = require('react'),
+  { renderToString } = require('react-dom/server'),
+  StylesProvider = require('@material-ui/styles/StylesProvider').default,
+  getPageContext = require('./src/utils/getPageContext').default
 
-function replaceRenderer({
-  bodyComponent,
-  replaceBodyHTMLString,
-  setHeadComponents,
-}) {
+function replaceRenderer({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) {
   // Get the context of the page to collected side effects.
   const muiPageContext = getPageContext(),
-    bodyHTML = renderToString(
-      <StylesProvider sheetsRegistry={muiPageContext.sheetsRegistry}>
-        {bodyComponent}
-      </StylesProvider>
-    );
+    bodyHTML = renderToString(<StylesProvider sheetsRegistry={muiPageContext.sheetsRegistry}>{bodyComponent}</StylesProvider>)
 
-  replaceBodyHTMLString(bodyHTML);
+  replaceBodyHTMLString(bodyHTML)
   setHeadComponents([
     <style
       type="text/css"
@@ -28,7 +20,7 @@ function replaceRenderer({
         __html: muiPageContext.sheetsRegistry.toString(),
       }}
     />,
-  ]);
+  ])
 }
 
-exports.replaceRenderer = replaceRenderer;
+exports.replaceRenderer = replaceRenderer

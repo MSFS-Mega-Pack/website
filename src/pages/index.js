@@ -1,23 +1,23 @@
-import withRoot from "../utils/withRoot";
-import React from "react";
-import { graphql, Link } from "gatsby";
-import SEO from "../components/SEO";
-import Card from "../components/Card";
-import Page from "../components/Page";
-import HomeFeatures from "../components/HomeFeatures";
-import Button from "@material-ui/core/Button";
-import Carousel from "../components/Carousel";
-import Avatar from "@material-ui/core/Avatar";
-import { Gift } from "mdi-material-ui";
-import withStyles from "@material-ui/styles/withStyles";
+import withRoot from '../utils/withRoot'
+import React from 'react'
+import { graphql, Link } from 'gatsby'
+import SEO from '../components/SEO'
+import Card from '../components/Card'
+import Page from '../components/Page'
+import HomeFeatures from '../components/HomeFeatures'
+import Button from '@material-ui/core/Button'
+import Carousel from '../components/Carousel'
+import Avatar from '@material-ui/core/Avatar'
+import { Gift } from 'mdi-material-ui'
+import withStyles from '@material-ui/styles/withStyles'
 
 const styles = () => ({
   root: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
-});
+})
 const Home = props => {
-  const products = props.data.allMarkdownRemark.edges;
+  const products = props.data.allMarkdownRemark.edges
   return (
     <Page title="Gatsby Material UI Business Starter">
       <SEO title="Home">
@@ -30,13 +30,7 @@ const Home = props => {
       <HomeFeatures />
       <Card
         action={
-          <Button
-            className={props.classes.root}
-            color="secondary"
-            component={Link}
-            to="/products"
-            variant="contained"
-          >
+          <Button className={props.classes.root} color="secondary" component={Link} to="/products" variant="contained">
             View All Products
           </Button>
         }
@@ -51,8 +45,8 @@ const Home = props => {
         <Carousel items={products} />
       </Card>
     </Page>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query {
@@ -63,10 +57,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/products/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/products/" } }, sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
@@ -83,6 +74,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default withRoot(withStyles(styles)(Home));
+export default withRoot(withStyles(styles)(Home))

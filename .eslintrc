@@ -1,5 +1,4 @@
 {
-
   "env": {
     "browser": true,
     "es6": true,
@@ -27,14 +26,9 @@
 
   "parser": "babel-eslint",
 
-  "plugins": [
-    "react-hooks"
-  ],
+  "plugins": ["react-hooks"],
 
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
 
   "rules": {
     "react/boolean-prop-naming": 2,
@@ -56,7 +50,7 @@
     "react/jsx-fragments": 2,
     "react/jsx-handler-names": 0,
     "react/jsx-key": 2,
-    "react/jsx-max-depth": [2, {"max": 9}],
+    "react/jsx-max-depth": [2, { "max": 9 }],
     "react/jsx-no-bind": 0,
     "react/jsx-no-comment-textnodes": 2,
     "react/jsx-no-target-blank": 2,
@@ -122,10 +116,10 @@
     "func-style": 0,
     "generator-star-spacing": [2, "both"],
     "guard-for-in": 2,
-    "handle-callback-err": [2, "^(err|error|anySpecificError)$" ],
+    "handle-callback-err": [2, "^(err|error|anySpecificError)$"],
     "indent": 0,
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
-    "keyword-spacing": [2, {"before": true, "after": true}],
+    "keyword-spacing": [2, { "before": true, "after": true }],
     "linebreak-style": 2,
     "max-depth": 1,
     "max-len": [0, 120, 4],
@@ -231,13 +225,12 @@
     "operator-linebreak": [0, "before"],
     "padded-blocks": [2, "never"],
     "quote-props": 0,
-    "quotes": [2, "double", "avoid-escape"],
+    "quotes": [2, "single", "avoid-escape"],
     "radix": 0,
-    "semi": [2, "always"],
     "semi-spacing": 2,
     "sort-vars": 1,
     "space-before-blocks": [2, "always"],
-    "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+    "space-before-function-paren": [2, { "anonymous": "always", "named": "never" }],
     "space-in-parens": [2, "never"],
     "space-infix-ops": 2,
     "space-unary-ops": [2, { "words": true, "nonwords": false }],

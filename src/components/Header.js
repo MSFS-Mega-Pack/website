@@ -1,16 +1,16 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import { Link } from "gatsby";
-import Menu from "./Menu";
-import MenuMobile from "./MenuMobile";
-import Hidden from "@material-ui/core/Hidden";
-import Grid from "@material-ui/core/Grid";
-import Toolbar from "@material-ui/core/Toolbar";
-import AppBar from "@material-ui/core/AppBar";
-import Typography from "@material-ui/core/Typography";
-import Chip from "@material-ui/core/Chip";
-import Avatar from "@material-ui/core/Avatar";
-import { MaterialUi } from "mdi-material-ui";
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
+import Menu from './Menu'
+import MenuMobile from './MenuMobile'
+import Hidden from '@material-ui/core/Hidden'
+import Grid from '@material-ui/core/Grid'
+import Toolbar from '@material-ui/core/Toolbar'
+import AppBar from '@material-ui/core/AppBar'
+import Typography from '@material-ui/core/Typography'
+import Chip from '@material-ui/core/Chip'
+import Avatar from '@material-ui/core/Avatar'
+import { MaterialUi } from 'mdi-material-ui'
 
 const Header = props => {
   return (
@@ -25,11 +25,7 @@ const Header = props => {
                 </Avatar>
               }
               id="logo"
-              label={
-                <Link to="/">
-                  {props.data.site.siteMetadata.title.toUpperCase()}
-                </Link>
-              }
+              label={<Link to="/">{props.data.site.siteMetadata.title.toUpperCase()}</Link>}
               variant="outlined"
             />
           </Grid>
@@ -47,8 +43,8 @@ const Header = props => {
         <Grid item />
       </Toolbar>
     </AppBar>
-  );
-};
+  )
+}
 
 export default () => (
   <StaticQuery
@@ -67,4 +63,4 @@ export default () => (
     `}
     render={data => <Header data={data} />}
   />
-);
+)
