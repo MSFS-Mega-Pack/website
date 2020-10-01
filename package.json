@@ -13,24 +13,30 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "yarn develop",
     "build": "gatsby build --prefix-paths",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "eslint": "npx eslint ."
   },
   "dependencies": {
-    "@material-ui/core": "4.11.0",
-    "@material-ui/styles": "4.10.0",
-    "gatsby": "2.24.27",
-    "gatsby-plugin-react-helmet": "3.3.10",
-    "mdi-material-ui": "6.17.0",
-    "prop-types": "15.7.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-helmet": "6.1.0"
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.10.0",
+    "clsx": "^1.1.1",
+    "gatsby": "^2.24.66",
+    "gatsby-plugin-google-analytics": "^2.3.15",
+    "gatsby-plugin-less": "^4.0.5",
+    "gatsby-plugin-react-helmet": "^3.3.12",
+    "mdi-material-ui": "^6.19.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-material-ui-carousel": "^2.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "10.1.0",
-    "eslint": "7.6.0",
-    "eslint-plugin-react": "7.20.5",
-    "eslint-plugin-react-hooks": "4.0.8",
-    "prettier": "2.0.5"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.10.0",
+    "eslint-plugin-react": "^7.21.2",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "prettier": "^2.1.2"
   }
 }

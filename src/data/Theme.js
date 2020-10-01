@@ -11,9 +11,9 @@ export default createMuiTheme({
   },
   palette: {
     type: 'dark',
-    background: '',
     primary: colors.amber,
     secondary: colors.grey,
+    background: '',
     text: {
       secondary: colors.grey[500],
     },

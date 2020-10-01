@@ -23,7 +23,7 @@ const SEO = props => (
 )
 
 SEO.defaultProps = {
-  keywords: [],
+  keywords: ['flight simulator', 'livery', 'flight sim', 'microsoft flight simulator', 'airbus', 'boeing', 'liveries'],
   lang: 'en',
   meta: [],
 }

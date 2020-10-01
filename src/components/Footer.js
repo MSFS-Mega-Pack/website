@@ -1,70 +1,44 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import Divider from '@material-ui/core/Divider'
-import Typography from '@material-ui/core/Typography'
-import Hidden from '@material-ui/core/Hidden'
-import withStyles from '@material-ui/styles/withStyles'
 
-const styles = theme => ({
-  divider: {
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(3),
-  },
-  footer: {
-    marginBottom: theme.spacing(3),
+import PageSection from './PageSection'
+import { makeStyles, Typography } from '@material-ui/core'
+import Link from './Link'
+
+const useStyles = makeStyles(theme => ({
+  root: {
     whiteSpace: 'nowrap',
+    background: '#000',
+    backgroundClip: 'border-box',
   },
-})
+  separator: {
+    display: 'inline-block',
+    color: theme.palette.primary.main,
+    transform: 'scale(1.5)',
+    transformOrigin: '50%',
+    marginLeft: 12,
+    marginRight: 12,
+  },
+  footerPara: {
+    paddingBottom: theme.spacing(0.5),
+  },
+}))
 
-const Footer = withStyles(styles)(props => {
-  const {
-    classes,
-    data: {
-      site: {
-        siteMetadata: {
-          title,
-          contact: { email, phone },
-        },
-      },
-    },
-  } = props
+export default function Footer() {
+  const classes = useStyles()
+
   return (
-    <>
-      <Divider className={classes.divider} />
-      <footer className={classes.footer} id="footer">
-        <span>
-          <Typography component="span" variant="caption">
-            ©{new Date().getFullYear()} {title} <Hidden only={['xs', 'sm']}>–</Hidden>
-            <Hidden only={['xl', 'lg', 'md']}>
-              <br />
-            </Hidden>{' '}
-            {email} – {phone}
-            <br />
-            &middot;
-            <br />
-            Starter created by <a href="https://foxandgeese.com">Fox and Geese</a>
-          </Typography>
-        </span>
-      </footer>
-    </>
+    <PageSection fullWidth className={classes.root}>
+      <Typography variant="body1" className={classes.footerPara}>
+        &copy; {new Date().getFullYear()}
+        <span className={classes.separator}>•</span>
+        Liveries Mega Pack
+      </Typography>
+      <Typography variant="body2" paragraph color="textSecondary">
+        Made with ❤️ by{' '}
+        <Link externalLink url="https://davwheat.dev">
+          David Wheatley
+        </Link>
+      </Typography>
+    </PageSection>
   )
-})
-
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            contact {
-              email
-              phone
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Footer data={data} />}
-  />
-)
+}
