@@ -4,6 +4,7 @@ module.exports = {
     title: 'Livery Mega Pack',
   },
   plugins: [
+    'gatsby-plugin-htaccess',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-less',
     {

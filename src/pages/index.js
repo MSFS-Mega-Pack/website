@@ -15,8 +15,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      '& > *': {
+      '& > div': {
         flexBasis: '33.333%',
+        '&:nth-child(1)': {
+          background: theme.palette.primary[400],
+        },
       },
     },
   },

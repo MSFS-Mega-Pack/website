@@ -5,10 +5,16 @@ import Carousel from 'react-material-ui-carousel'
 import Link from './Link'
 
 import carouselItems from '../data/carouselSlides'
+import { Helmet } from 'react-helmet'
 
 const useCarouselStyles = makeStyles(theme => ({
   root: {
     background: 'black',
+  },
+  indicatorContainer: {
+    position: 'absolute',
+    bottom: 4,
+    marginTop: 0,
   },
   info: {
     padding: theme.spacing(2, 2),
@@ -59,6 +65,8 @@ const useCarouselItemStyles = makeStyles(theme => ({
 
 const useCreditStyles = makeStyles(theme => ({
   root: {
+    marginBottom: theme.spacing(2),
+    opacity: 0.5,
     '& p': {
       position: 'relative',
       color: '#fff',
@@ -103,30 +111,36 @@ const useSlideStyles = makeStyles(theme => ({
 }))
 
 export default function ShowcaseCarousel() {
-  useEffect(() => {
-    // preload images
-    carouselItems.forEach(item => {
-      let i = new Image()
-      i.src = item.src
-    })
-  })
-
   const classes = useCarouselStyles()
 
   return (
-    <Carousel className={classes.root} navButtonsAlwaysInvisible indicators={false} interval={12000}>
-      {carouselItems.map((item, i) => (
-        <React.Fragment key={i}>
-          <CarouselItem data={item} />
+    <>
+      {/* Preload carousel images */}
+      <Helmet>
+        {carouselItems.map(item => (
+          <link key={item.image.src} rel="preload" href={item.image.src} as="image" />
+        ))}
+      </Helmet>
+      <Carousel
+        fullHeightHover
+        navButtonsAlwaysVisible
+        className={classes.root}
+        indicatorContainerProps={{ className: classes.indicatorContainer }}
+        interval={12000}
+      >
+        {carouselItems.map((item, i) => (
+          <React.Fragment key={i}>
+            <CarouselItem data={item} />
 
-          <Hidden implementation="css" mdUp>
-            <Box className={classes.info}>
-              <ImageCredits image={item.image} />
-            </Box>
-          </Hidden>
-        </React.Fragment>
-      ))}
-    </Carousel>
+            <Hidden implementation="css" mdUp>
+              <Box className={classes.info}>
+                <ImageCredits image={item.image} />
+              </Box>
+            </Hidden>
+          </React.Fragment>
+        ))}
+      </Carousel>
+    </>
   )
 }
 
@@ -138,7 +152,7 @@ function CarouselItem({ data }) {
   return (
     <Box
       className={classes.root}
-      style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${encodeURI(image.src)})` }}
+      style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, ${data.darken}), rgba(0, 0, 0, ${data.darken})), url(${encodeURI(image.src)})` }}
     >
       <SlideData slide={slide} />
 
