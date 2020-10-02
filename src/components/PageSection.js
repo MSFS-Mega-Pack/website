@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core'
 import clsx from 'clsx'
 
 const useStyles = makeStyles(theme => ({
-  root: { padding: 48 },
+  root: { padding: theme.spacing(6), [theme.breakpoints.down('sm')]: { padding: theme.spacing(4) } },
   widthRestrict: { maxWidth: 1100, margin: 'auto' },
   fullHeight: { height: '100vh' },
   fullHeightMinusToolbar: { height: 'calc(100vh - 64px)', [theme.breakpoints.down('xs')]: { height: 'calc(100vh - 56px)' } },
@@ -44,5 +44,5 @@ PageSection.defaultProps = {
   fullWidth: false,
   fullHeight: 'no',
   className: '',
-  style: null,
+  style: {},
 }

@@ -1,49 +1,64 @@
-import { Box, makeStyles, Typography } from '@material-ui/core'
 import React, { useEffect } from 'react'
+
+import { Box, Button, Hidden, makeStyles, Typography } from '@material-ui/core'
 import Carousel from 'react-material-ui-carousel'
+import Link from './Link'
 
-import quantas100 from '../img/demo/100-quantas-a320.jpg'
-import airfranceSkyteam from '../img/demo/airfrance-skyteam-a320.jpg'
-import asianaSkyteam from '../img/demo/asiana-a320.jpg'
-import ba787classic from '../img/demo/ba-787-classic.jpg'
-import baa320modern from '../img/demo/ba-a320-modern.jpg'
-import dalCaravan from '../img/demo/dal-caravan.jpg'
-import koreanAirA320 from '../img/demo/korean-air-a320.jpg'
-import loganair from '../img/demo/loganair-tbm.jpg'
-import malta from '../img/demo/malta-a320.jpg'
-import norwegian from '../img/demo/norwegian-787.jpg'
-import virgin from '../img/demo/virgin-787.jpg'
+import carouselItems from '../data/carouselSlides'
 
-const carouselItems = [
-  { aircraft: 'A320neo', livery: 'Qantas 100-year Anniversary', author: '@라즈#3444', src: quantas100 },
-  { aircraft: 'A320neo', livery: 'Air France SkyTeam', author: '@Sasap#1148', src: airfranceSkyteam },
-  { aircraft: 'A320neo', livery: 'Asiana Airlines SkyTeam', author: '@라즈#3444', src: asianaSkyteam },
-  { aircraft: 'Boeing 787', livery: 'British Airways (Landor)', author: '@tomihbk#3833', src: ba787classic },
-  { aircraft: 'A320neo', livery: 'British Airways', author: '@AlexK#8565', src: baa320modern },
-  { aircraft: 'Cessna Grand Caravan 208 B', livery: 'Dodo Airlines', author: '@라즈#3444', src: dalCaravan },
-  { aircraft: 'A320neo', livery: 'Korean Airlines', author: '@라즈#3444', src: koreanAirA320 },
-  { aircraft: 'TBM 930', livery: 'LoganAir', author: '@Liquidpinky#8871', src: loganair },
-  { aircraft: 'A320neo', livery: 'Malta Air', author: '@라즈#3444', src: malta },
-  { aircraft: 'Boeing 787', livery: 'Norwegian', author: '@Tempo#2297', src: norwegian },
-  { aircraft: 'Boeing 787', livery: 'Virgin Atlantic', author: '@Krake802#8172', src: virgin },
-]
+const useCarouselStyles = makeStyles(theme => ({
+  root: {
+    background: 'black',
+  },
+  info: {
+    padding: theme.spacing(2, 2),
+    background: 'black',
+    textAlign: 'center',
+    '& p': {
+      position: 'relative',
+      color: '#fff',
+      WebkitTextStroke: '2px black',
+      WebkitTextFillColor: 'transparent',
+      display: 'inline-block',
+      '&::after': {
+        content: 'attr(data-text)',
+        WebkitTextFillColor: 'white',
+        WebkitTextStroke: 0,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+      },
+    },
+  },
+}))
 
-const carouselItemStyles = makeStyles(theme => ({
+const useCarouselItemStyles = makeStyles(theme => ({
   root: {
     position: 'relative',
     width: '100%',
-    paddingBottom: '41.875%',
     display: 'flex',
     backgroundPosition: '50%',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    maxHeight: 640,
     overflow: 'hidden',
+    paddingBottom: '41.875%',
+    [theme.breakpoints.only('sm')]: {
+      paddingBottom: '50%',
+    },
+    [theme.breakpoints.only('xs')]: {
+      height: '100vh',
+      paddingBottom: 0,
+    },
   },
   info: {
     position: 'absolute',
     bottom: 16,
     left: 16,
+  },
+}))
+
+const useCreditStyles = makeStyles(theme => ({
+  root: {
     '& p': {
       position: 'relative',
       color: '#fff',
@@ -70,6 +85,23 @@ const carouselItemStyles = makeStyles(theme => ({
   },
 }))
 
+const useSlideStyles = makeStyles(theme => ({
+  root: {
+    color: '#fff',
+    maxWidth: 924,
+    padding: theme.spacing(4),
+    width: '100%',
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+  },
+  title: { paddingBottom: theme.spacing(4) },
+  text: { paddingBottom: theme.spacing(3) },
+  button: { '& svg': { marginRight: theme.spacing() } },
+}))
+
 export default function ShowcaseCarousel() {
   useEffect(() => {
     // preload images
@@ -79,33 +111,96 @@ export default function ShowcaseCarousel() {
     })
   })
 
+  const classes = useCarouselStyles()
+
   return (
-    <Carousel navButtonsAlwaysInvisible indicators={false} interval={12000}>
+    <Carousel className={classes.root} navButtonsAlwaysInvisible indicators={false} interval={12000}>
       {carouselItems.map((item, i) => (
-        <CarouselItem key={i} data={item} />
+        <React.Fragment key={i}>
+          <CarouselItem data={item} />
+
+          <Hidden implementation="css" mdUp>
+            <Box className={classes.info}>
+              <ImageCredits image={item.image} />
+            </Box>
+          </Hidden>
+        </React.Fragment>
       ))}
     </Carousel>
   )
 }
 
 function CarouselItem({ data }) {
-  const classes = carouselItemStyles()
+  const classes = useCarouselItemStyles()
+
+  const { image, slide } = data
 
   return (
-    <Box className={classes.root} style={{ backgroundImage: `url(${encodeURI(data.src)})` }}>
-      <Box className={classes.info}>
-        <Typography component="p" variant="body2" data-text={data.aircraft}>
-          {data.aircraft}
-        </Typography>
-        <span className={classes.separator}> • </span>
-        <Typography component="p" variant="body2" data-text={data.livery}>
-          {data.livery}
-        </Typography>
-        <span className={classes.separator}> • </span>
-        <Typography component="p" variant="body2" data-text={`Painted by ${data.author}`}>
-          Painted by {data.author}
-        </Typography>
-      </Box>
+    <Box
+      className={classes.root}
+      style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${encodeURI(image.src)})` }}
+    >
+      <SlideData slide={slide} />
+
+      <Hidden implementation="css" smDown>
+        <Box className={classes.info}>
+          <ImageCredits image={image} />
+        </Box>
+      </Hidden>
+    </Box>
+  )
+}
+
+function SlideData(props) {
+  const classes = useSlideStyles()
+
+  const slide = props.slide || {}
+
+  return (
+    <Box className={classes.root}>
+      <Typography className={classes.title} component="h2" variant="h3">
+        {slide.title || ''}
+      </Typography>
+      <Typography className={classes.text} component="p" variant="h6">
+        {slide.content || ''}
+      </Typography>
+      {slide.button && (
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          component={Link}
+          noLinkStyling
+          download={slide.button.isDownload}
+          target={slide.button.newTab && '__blank'}
+          rel={slide.button.newTab && 'noopener noreferrer'}
+          externalLink={slide.button.url && slide.button.url.startsWith('https://')}
+          url={slide.button.url}
+        >
+          {slide.button.icon}
+          {slide.button.text}
+        </Button>
+      )}
+    </Box>
+  )
+}
+
+function ImageCredits({ image }) {
+  const classes = useCreditStyles()
+
+  return (
+    <Box className={classes.root}>
+      <Typography component="p" variant="body2" data-text={image.aircraft}>
+        {image.aircraft}
+      </Typography>
+      <span className={classes.separator}> • </span>
+      <Typography component="p" variant="body2" data-text={image.livery}>
+        {image.livery}
+      </Typography>
+      <span className={classes.separator}> • </span>
+      <Typography component="p" variant="body2" data-text={`Painted by ${image.author}`}>
+        Painted by {image.author}
+      </Typography>
     </Box>
   )
 }

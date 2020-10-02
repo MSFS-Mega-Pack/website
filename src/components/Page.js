@@ -11,7 +11,7 @@ import './baseline.less'
 //   }
 // })
 
-export default function Component({ children, title }) {
+export default function Component({ children }) {
   return (
     <>
       <ThemeProvider theme={Theme}>

@@ -8,6 +8,9 @@ export default createMuiTheme({
     allVariants: {
       lineHeight: 24 / 18,
     },
+    h1: { fontWeight: 'bold' },
+    h2: { fontWeight: 'bold' },
+    h3: { fontWeight: 'bold' },
   },
   palette: {
     type: 'dark',
@@ -24,6 +27,7 @@ export default createMuiTheme({
       color: 'primary',
     },
   },
+
   overrides: {
     MuiTypography: {
       gutterBottom: {
