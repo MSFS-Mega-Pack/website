@@ -3,17 +3,35 @@ export default {
     {
       name: 'Clink123',
       role: 'Founder',
-      avatar: '',
-      description: '',
+      avatar: {
+        src: require('../img/ContributorAvatars/admin/clink.thumb.jpg'),
+        placeholder: require('../img/ContributorAvatars/admin/clink.placeholder.png'),
+      },
+      description: "Founding the mega pack, Clink manages its present and future. Got any suggestions? Submit a ticket and he'll take a look.",
     },
     {
       name: 'Aileron',
       role: 'Administrator',
-      avatar: '',
+      avatar: {
+        src: require('../img/ContributorAvatars/admin/aileron.thumb.jpg'),
+        placeholder: require('../img/ContributorAvatars/admin/aileron.placeholder.png'),
+      },
       description: '',
     },
   ],
-  moderation: [
+  submissionTesters: [
+    {
+      name: 'chxry',
+      role: 'Submission testing team',
+      avatar: '',
+      description: '',
+    },
+    {
+      name: 'CrawlingTug',
+      role: 'Submission testing team',
+      avatar: '',
+      description: '',
+    },
     {
       name: 'Gutzy',
       role: 'Submission testing team',
@@ -29,6 +47,20 @@ export default {
     {
       name: 'reap',
       role: 'Submission testing team',
+      avatar: '',
+      description: '',
+    },
+  ],
+  moderation: [
+    {
+      name: 'Eddie',
+      role: 'Moderator',
+      avatar: '',
+      description: '',
+    },
+    {
+      name: 'Robert X',
+      role: 'Moderator',
       avatar: '',
       description: '',
     },
@@ -52,25 +84,51 @@ export default {
       avatar: '',
       description: '',
     },
+    {
+      name: 'Damgot',
+      role: 'Support team',
+      avatar: '',
+      description: '',
+    },
   ],
   development: [
     {
       name: 'MrJeeves',
       role: 'Web and livery manager developer',
-      avatar: '',
+      avatar: {
+        src: require('../img/ContributorAvatars/development/mrjeeves.thumb.gif'),
+        placeholder: require('../img/ContributorAvatars/development/mrjeeves.placeholder.png'),
+      },
       description: '',
+      socials: {
+        github: 'davwheat',
+        twitter: 'davwheat_',
+      },
     },
     {
       name: 'Mr. Proper',
-      role: 'Manager and API developer',
-      avatar: '',
+      role: 'Livery manager and API developer',
+      avatar: {
+        src: require('../img/ContributorAvatars/development/mrproper.thumb.jpg'),
+        placeholder: require('../img/ContributorAvatars/development/mrproper.placeholder.png'),
+      },
       description: '',
+      socials: {
+        github: 'GewoonJaap',
+      },
     },
     {
       name: 'Ninja',
-      role: 'Manager developer',
-      avatar: '',
+      role: 'Livery manager developer',
+      avatar: {
+        src: require('../img/ContributorAvatars/development/ninja.thumb.jpg'),
+        placeholder: require('../img/ContributorAvatars/development/ninja.placeholder.png'),
+      },
       description: '',
+      socials: {
+        github: 'NinjaLabs-Dev',
+      },
     },
   ],
+  monetarySupporter: [],
 }
