@@ -14,7 +14,8 @@
     "start": "yarn develop",
     "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
-    "eslint": "npx eslint ."
+    "eslint": "npx eslint .",
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
