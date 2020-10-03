@@ -38,16 +38,17 @@ export default function TheTeam() {
           name="description"
         /> */}
       </SEO>
-      <HeroImage overlay src={getRandomImage()}>
-        <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column" m="auto" maxWidth={900} height="100%">
+      <HeroImage scrollCta overlay src={getRandomImage()}>
+        <Box m="auto" maxWidth={900}>
           <Typography gutterBottom variant="h1">
             The team
           </Typography>
-          <Typography align="center" variant="h5" component="p">
+          <Typography variant="h5" component="p">
             Discover the fantastic tight-knit community of people working to keep the livery mega pack running and up-to-date
           </Typography>
         </Box>
       </HeroImage>
+
       <PageSection>
         <Typography variant="h2" gutterBottom>
           Administration

@@ -1,4 +1,4 @@
-import { Box, Button, makeStyles, Typography } from '@material-ui/core'
+import { Box, Button, Typography } from '@material-ui/core'
 import React from 'react'
 
 import Page from '../components/Page'
@@ -11,7 +11,7 @@ export default function Component() {
   return (
     <Page title="404: Not Found">
       <HeroImage overlay src={getRandomImage()}>
-        <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column" m="auto" maxWidth={900} height="100%">
+        <Box m="auto" maxWidth={900}>
           <Typography variant="h1">404: Not Found</Typography>
           <Typography gutterBottom variant="h3" component="h2">
             Flight plan not filed
