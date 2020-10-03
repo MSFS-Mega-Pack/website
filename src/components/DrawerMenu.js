@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Divider, List, ListItem, ListItemIcon, ListItemText, makeStyles, useTheme } from '@material-ui/core'
+import Link from './Link'
 
 import HomeIcon from 'mdi-react/HomeOutlineIcon'
 
@@ -9,7 +10,6 @@ import ManagerIcon from 'mdi-react/ToolboxOutlineIcon'
 // import ManagerIcon from 'mdi-react/ApplicationCogIcon'
 
 import TeamIcon from 'mdi-react/AccountGroupOutlineIcon'
-import Link from './Link'
 
 const menuItems = [
   {
@@ -19,7 +19,7 @@ const menuItems = [
   {
     name: 'Downloads',
     items: [
-      { name: 'Mega Pack', url: '/download', icon: DownloadIcon },
+      { name: 'Download Mega Pack', url: '/download', icon: DownloadIcon },
       { name: 'Livery Manager', url: '/manager', icon: ManagerIcon },
     ],
   },
@@ -31,7 +31,8 @@ const menuItems = [
 
 const useStyles = makeStyles({
   list: {
-    width: 250,
+    maxWidth: 350,
+    width: '100vw',
   },
 })
 
