@@ -1,5 +1,4 @@
 import React from 'react'
-import json2mq from 'json2mq'
 
 import { makeStyles, useTheme } from '@material-ui/core'
 import PageSection from './PageSection'
