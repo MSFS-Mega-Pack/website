@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Box, Button, Hidden, makeStyles, Typography } from '@material-ui/core'
 import Carousel from 'react-material-ui-carousel'
@@ -6,6 +6,7 @@ import Link from './Link'
 
 import carouselItems from '../data/carouselSlides'
 import { Helmet } from 'react-helmet'
+import DownloadDialog from './DownloadDialog'
 
 const useCarouselStyles = makeStyles(theme => ({
   root: {
@@ -166,6 +167,7 @@ function CarouselItem({ data }) {
 }
 
 function SlideData(props) {
+  const [downloadDialogOpen, setDownloadDialogOpen] = useState(false)
   const classes = useSlideStyles()
 
   const slide = props.slide || {}
@@ -178,22 +180,40 @@ function SlideData(props) {
       <Typography className={classes.text} component="p" variant="h6">
         {slide.content || ''}
       </Typography>
-      {slide.button && (
-        <Button
-          variant="outlined"
-          color="primary"
-          className={classes.button}
-          component={Link}
-          noLinkStyling
-          download={slide.button.isDownload}
-          target={slide.button.newTab && '__blank'}
-          rel={slide.button.newTab && 'noopener noreferrer'}
-          externalLink={slide.button.url && slide.button.url.startsWith('https://')}
-          url={slide.button.url}
-        >
-          {slide.button.icon}
-          {slide.button.text}
-        </Button>
+
+      {/* isDownload: true,
+        url: constants.keyUrls.megapackDownloadUrl, */}
+      {slide.isMegapackDownloadSlide ? (
+        <>
+          <Button
+            // variant="outlined"
+            color="primary"
+            className={classes.button}
+            onClick={() => setDownloadDialogOpen(true)}
+          >
+            {slide.button.icon}
+            {slide.button.text}
+          </Button>
+          {downloadDialogOpen && <DownloadDialog onClose={() => setDownloadDialogOpen(false)} />}
+        </>
+      ) : (
+        slide.button && (
+          <Button
+            // variant="outlined"
+            color="primary"
+            className={classes.button}
+            component={Link}
+            noLinkStyling
+            download={slide.button.isDownload}
+            target={slide.button.newTab && '__blank'}
+            rel={slide.button.newTab && 'noopener noreferrer'}
+            externalLink={slide.button.url && slide.button.url.startsWith('https://')}
+            url={slide.button.url}
+          >
+            {slide.button.icon}
+            {slide.button.text}
+          </Button>
+        )
       )}
     </Box>
   )

@@ -1,6 +1,7 @@
-import { makeStyles, Tooltip } from '@material-ui/core'
-import clsx from 'clsx'
 import React from 'react'
+import { makeStyles, Tooltip } from '@material-ui/core'
+import { Link as GatsbyLink } from 'gatsby'
+import clsx from 'clsx'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,15 +34,21 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Link({ externalLink, url, tooltip, children, className, noLinkStyling, ...props }) {
+const Link = React.forwardRef(({ externalLink, url, tooltip, children, className, noLinkStyling, ...props }, ref) => {
   const classes = useStyles()
 
   if (noLinkStyling) {
     if (externalLink) {
       return (
-        <a className={className} href={url} {...props}>
+        <a ref={ref} className={className} href={url} {...props}>
           {children}
         </a>
+      )
+    } else {
+      return (
+        <GatsbyLink ref={ref} className={className} to={url} {...props}>
+          {children}
+        </GatsbyLink>
       )
     }
   }
@@ -50,7 +57,7 @@ export default function Link({ externalLink, url, tooltip, children, className, 
     if (tooltip) {
       return (
         <Tooltip title={tooltip}>
-          <a className={clsx(classes.root, className || '')} href={url} {...props}>
+          <a ref={ref} className={clsx(classes.root, className || '')} href={url} {...props}>
             <span className={classes.normalText}>{children}</span>
             <span className={classes.extraText}>{children}</span>
           </a>
@@ -59,10 +66,19 @@ export default function Link({ externalLink, url, tooltip, children, className, 
     }
 
     return (
-      <a className={clsx(classes.root, className || '')} href={url} {...props}>
+      <a ref={ref} className={clsx(classes.root, className || '')} href={url} {...props}>
         <span className={classes.normalText}>{children}</span>
         <span className={classes.extraText}>{children}</span>
       </a>
     )
+  } else {
+    return (
+      <GatsbyLink ref={ref} className={clsx(classes.root, className || '')} to={url} {...props}>
+        <span className={classes.normalText}>{children}</span>
+        <span className={classes.extraText}>{children}</span>
+      </GatsbyLink>
+    )
   }
-}
+})
+
+export default Link

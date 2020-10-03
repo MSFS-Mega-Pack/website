@@ -6,6 +6,7 @@ import Theme from '../data/Theme'
 
 import 'typeface-poppins'
 import './baseline.less'
+import { SnackbarProvider } from 'notistack'
 
 // const useStyles = makeStyles({
 //   main: {
@@ -17,11 +18,13 @@ export default function Component({ children }) {
   return (
     <>
       <ThemeProvider theme={Theme}>
-        <CssBaseline />
-        <Header />
-        <Toolbar />
-        <Box>{children}</Box>
-        <Footer />
+        <SnackbarProvider>
+          <CssBaseline />
+          <Header />
+          <Toolbar />
+          <Box>{children}</Box>
+          <Footer />
+        </SnackbarProvider>
       </ThemeProvider>
     </>
   )

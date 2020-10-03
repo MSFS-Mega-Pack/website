@@ -7,6 +7,8 @@ import ShowcaseCarousel from '../components/ShowcaseCarousel'
 import CountUpOnScroll from '../components/CountUpOnScroll'
 import { Box, makeStyles, Typography } from '@material-ui/core'
 
+import constants from '../data/constants.json'
+
 const useStyles = makeStyles(theme => ({
   statistics: {
     display: 'flex',
@@ -46,15 +48,15 @@ export default function Home() {
       <PageSection>
         <Box className={classes.statistics}>
           <Box p={2}>
-            <CountUpOnScroll className={classes.statisticValue} end={400} suffix="+" />
+            <CountUpOnScroll className={classes.statisticValue} end={constants.data.liveries.display} suffix="+" />
             <Typography variant="h6">liveries</Typography>
           </Box>
           <Box p={2}>
-            <CountUpOnScroll className={classes.statisticValue} end={90} suffix="+" />
+            <CountUpOnScroll className={classes.statisticValue} end={constants.data.liveryCreators.display} suffix="+" />
             <Typography variant="h6">contributors</Typography>
           </Box>
           <Box p={2}>
-            <CountUpOnScroll className={classes.statisticValue} end={50} suffix="K+" />
+            <CountUpOnScroll className={classes.statisticValue} end={constants.data.downloads.thousands} suffix="K+" />
             <Typography variant="h6">downloads</Typography>
           </Box>
         </Box>

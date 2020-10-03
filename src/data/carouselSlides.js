@@ -15,6 +15,7 @@ import virgin from '../img/demo/virgin-787.jpg'
 import DownloadIcon from 'mdi-react/DownloadOutlineIcon'
 import DiscordIcon from 'mdi-react/DiscordIcon'
 import NewsIcon from 'mdi-react/NewspaperVariantMultipleOutlineIcon'
+import PeopleIcon from 'mdi-react/AccountGroupOutlineIcon'
 
 import constants from '../data/constants.json'
 
@@ -23,28 +24,41 @@ export default Object.freeze([
     slide: {
       title: 'Get the mega pack',
       content: 'Download the latest version of the Liveries Mega Pack, containing over 400 real-world liveries',
+      isMegapackDownloadSlide: true,
       button: {
         text: 'Download',
         icon: <DownloadIcon />,
-        isDownload: true,
-        url: constants.keyUrls.megapackDownloadUrl,
       },
     },
-    darken: 0.5,
+    darken: 0.45,
     image: { aircraft: 'A320neo', livery: 'Qantas 100-year Anniversary', author: '@라즈#3444', src: quantas100 },
   },
   {
     slide: {
-      title: 'Keep in touch',
-      content: 'Join our Discord server to chat with over 14,000 other avid flight simmers',
+      title: 'Livery manager',
+      content: "Download only the liveries you want, and get updates as they're released",
       button: {
-        text: 'Browse',
+        text: 'Download',
+        icon: <DownloadIcon />,
+        url: constants.keyUrls.managerGithubLatestRelease,
+        newTab: true,
+      },
+    },
+    darken: 0.45,
+    image: { aircraft: 'A320neo', livery: 'Malta Air', author: '@라즈#3444', src: malta },
+  },
+  {
+    slide: {
+      title: 'Keep in touch',
+      content: `Join our Discord server to chat with over ${constants.data.discordMembers.human} other avid flight simmers`,
+      button: {
+        text: 'Join',
         icon: <DiscordIcon />,
         url: constants.keyUrls.discordInvite,
         newTab: true,
       },
     },
-    darken: 0.5,
+    darken: 0.25,
     image: { aircraft: 'A320neo', livery: 'Air France SkyTeam', author: '@Sasap#1148', src: airfranceSkyteam },
   },
   {
@@ -52,18 +66,26 @@ export default Object.freeze([
       title: 'Want to get stuck in?',
       content: 'Read our blog, full of tutorials and more to help you create your own liveries',
       button: {
-        text: 'Join',
+        text: 'Browse',
         icon: <NewsIcon />,
-        url: constants.keyUrls.discordInvite,
-        newTab: true,
+        url: '/blog',
       },
     },
     darken: 0.5,
     image: { aircraft: 'A320neo', livery: 'Asiana Airlines SkyTeam', author: '@라즈#3444', src: asianaSkyteam },
   },
   {
+    slide: {
+      title: 'Meet the team',
+      content: "Curious who's behind this project? Look no further.",
+      button: {
+        text: 'The Team',
+        icon: <PeopleIcon />,
+        url: '/the-team',
+      },
+    },
     darken: 0.5,
-    image: { aircraft: 'Boeing 787', livery: 'British Airways (Landor)', author: '@tomihbk#3833', src: ba787classic },
+    image: { aircraft: 'Boeing 787', livery: 'Norwegian', author: '@Tempo#2297', src: norwegian },
   },
   {
     darken: 0.5,
@@ -82,12 +104,8 @@ export default Object.freeze([
     image: { aircraft: 'TBM 930', livery: 'LoganAir', author: '@Liquidpinky#8871', src: loganair },
   },
   {
-    darken: 0.35,
-    image: { aircraft: 'A320neo', livery: 'Malta Air', author: '@라즈#3444', src: malta },
-  },
-  {
     darken: 0.5,
-    image: { aircraft: 'Boeing 787', livery: 'Norwegian', author: '@Tempo#2297', src: norwegian },
+    image: { aircraft: 'Boeing 787', livery: 'British Airways (Landor)', author: '@tomihbk#3833', src: ba787classic },
   },
   {
     darken: 0.4,

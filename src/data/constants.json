@@ -1,7 +1,36 @@
 {
+  "data": {
+    "megapackSize": {
+      "gigabytes": 2.4,
+      "human": "2.4 GB"
+    },
+    "discordMembers": {
+      "actual": 14540,
+      "display": 14000,
+      "human": "14,000"
+    },
+    "liveryCreators": {
+      "actual": 99,
+      "display": 90,
+      "human": "90"
+    },
+    "liveries": {
+      "actual": 384,
+      "display": 380,
+      "human": "380"
+    },
+    "downloads": {
+      "actual": 350000,
+      "display": 350000,
+      "human": "350,000",
+      "thousands": 350,
+      "thousandsHuman": "350K"
+    }
+  },
   "keyUrls": {
     "megapackDownloadUrl": "https://liveriesmegapack.b-cdn.net/LiveriesMegaPackVersionX.1.zip",
     "discordInvite": "https://discord.gg/megapack",
-    "github": "https://github.com/msfs-mega-pack"
+    "github": "https://github.com/msfs-mega-pack",
+    "managerGithubLatestRelease": "https://github.com/MSFS-Mega-Pack/MSFS2020-livery-manager/releases/latest"
   }
 }
