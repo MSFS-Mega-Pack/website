@@ -5,11 +5,12 @@ import Page from '../components/Page'
 import PageSection from '../components/PageSection'
 import ShowcaseCarousel from '../components/ShowcaseCarousel'
 import Link from '../components/Link'
+import Statistics from '../components/Statistics'
 
 import { Box, Button, makeStyles, Typography } from '@material-ui/core'
 
 import TeamIcon from 'mdi-react/AccountGroupOutlineIcon'
-import Statistics from '../components/Statistics'
+import BlogIcon from 'mdi-react/NewspaperVariantMultipleOutlineIcon'
 
 const useStyles = makeStyles(theme => ({
   panel: {
@@ -88,15 +89,15 @@ function MainLinks() {
         </Box>
         <Box className={classes.panel}>
           <Typography variant="h3" component="h2" gutterBottom>
-            Nisi elit pariatur
+            The checklist
           </Typography>
           <Typography variant="body1" paragraph>
-            Est ullamco eiusmod ipsum do deserunt eiusmod laborum ex est ex ullamco incididunt laborum. Minim cillum sint dolore cupidatat do
-            Lorem ea. Velit fugiat dolor esse fugiat sunt ullamco. Dolor est occaecat consequat enim qui fugiat officia.
+            Check out our official blog, full to the brim with useful tutorials aimed for people new to livery creation, and for the more
+            experienced, too.
           </Typography>
-          <Box m="auto" width="max-content">
-            <Button color="secondary" variant="outlined" component={Link} noLinkStyling startIcon={<TeamIcon />} url="/the-team">
-              Quis officia nisi
+          <Box m="auto" mb={0} width="max-content">
+            <Button color="secondary" variant="outlined" component={Link} noLinkStyling startIcon={<BlogIcon />} url="/blog">
+              Read the blog
             </Button>
           </Box>
         </Box>
