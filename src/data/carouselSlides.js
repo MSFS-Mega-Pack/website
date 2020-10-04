@@ -79,7 +79,7 @@ export default Object.freeze([
       title: 'Meet the team',
       content: "Curious who's behind this project? Look no further.",
       button: {
-        text: 'The Team',
+        text: 'Meet the team',
         icon: <PeopleIcon />,
         url: '/the-team',
       },
