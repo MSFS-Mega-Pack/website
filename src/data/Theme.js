@@ -7,8 +7,10 @@ export default responsiveFontSizes(
       fontSize: 18,
       htmlFontSize: 18,
       allVariants: {
-        lineHeight: 1.5,
+        lineHeight: 1.3,
       },
+      body1: { lineHeight: 1.5 },
+      body2: { lineHeight: 1.5 },
       h1: { fontWeight: 'bold' },
       h2: { fontWeight: 'bold' },
       h3: { fontWeight: 'bold' },
@@ -16,7 +18,7 @@ export default responsiveFontSizes(
     palette: {
       type: 'dark',
       primary: colors.amber,
-      secondary: colors.grey,
+      secondary: colors.pink,
       text: {
         secondary: colors.grey[500],
       },
