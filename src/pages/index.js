@@ -4,36 +4,49 @@ import SEO from '../components/SEO'
 import Page from '../components/Page'
 import PageSection from '../components/PageSection'
 import ShowcaseCarousel from '../components/ShowcaseCarousel'
-import CountUpOnScroll from '../components/CountUpOnScroll'
-import { Box, makeStyles, Typography } from '@material-ui/core'
+import Link from '../components/Link'
 
-import constants from '../data/constants.json'
+import { Box, Button, makeStyles, Typography } from '@material-ui/core'
+
+import TeamIcon from 'mdi-react/AccountGroupOutlineIcon'
+import Statistics from '../components/Statistics'
 
 const useStyles = makeStyles(theme => ({
-  statistics: {
+  panel: {
     display: 'flex',
     flexDirection: 'column',
-    textAlign: 'center',
-    [theme.breakpoints.up('sm')]: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      '& > div': {
-        flexBasis: '33.333%',
-        '&:nth-child(1)': {
-          background: theme.palette.primary[400],
-        },
+    padding: theme.spacing(3, 4, 4, 4),
+    borderTop: `8px solid ${theme.palette.secondary.main}`,
+    background: 'rgba(0, 0, 0, 0.6)',
+    flex: '1',
+    maxWidth: 800,
+    [theme.breakpoints.up('md')]: {
+      '&:nth-child(1)': {
+        marginRight: theme.spacing(4),
+      },
+      '&:nth-child(2)': {
+        marginLeft: theme.spacing(4),
       },
     },
-  },
-  statisticValue: {
-    fontSize: theme.typography.pxToRem(56),
-    fontWeight: 'bold',
+    [theme.breakpoints.only('md')]: {
+      '&:nth-child(1)': {
+        marginRight: theme.spacing(2),
+      },
+      '&:nth-child(2)': {
+        marginLeft: theme.spacing(2),
+      },
+    },
+    [theme.breakpoints.down('sm')]: {
+      flexBasis: '100%',
+      marginBottom: theme.spacing(4),
+      '&:last-child': {
+        marginBottom: 0,
+      },
+    },
   },
 }))
 
 export default function Home() {
-  const classes = useStyles()
-
   return (
     <Page>
       <SEO title="Home">
@@ -42,25 +55,52 @@ export default function Home() {
           name="description"
         /> */}
       </SEO>
+
       <PageSection noPad fullWidth>
         <ShowcaseCarousel />
       </PageSection>
-      <PageSection>
-        <Box className={classes.statistics}>
-          <Box p={2}>
-            <CountUpOnScroll className={classes.statisticValue} end={constants.data.liveries.display} suffix="+" />
-            <Typography variant="h6">liveries</Typography>
-          </Box>
-          <Box p={2}>
-            <CountUpOnScroll className={classes.statisticValue} end={constants.data.liveryCreators.display} suffix="+" />
-            <Typography variant="h6">contributors</Typography>
-          </Box>
-          <Box p={2}>
-            <CountUpOnScroll className={classes.statisticValue} end={constants.data.downloads.thousands} suffix="K+" />
-            <Typography variant="h6">downloads</Typography>
+
+      <Statistics />
+      <MainLinks />
+    </Page>
+  )
+}
+
+function MainLinks() {
+  const classes = useStyles()
+
+  return (
+    <PageSection fullWidth>
+      <Box display="flex" width="100%" justifyContent="center" flexWrap="wrap">
+        <Box className={classes.panel}>
+          <Typography variant="h3" component="h2" gutterBottom>
+            The mega pack team
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Over 100 people contribute in some way to the livery mega pack, whether it's by creating their own liveries, contributing to
+            distribution costs, developing projects, or providing support to community members.
+          </Typography>
+          <Box m="auto" mb={0} width="max-content">
+            <Button color="secondary" variant="outlined" component={Link} noLinkStyling startIcon={<TeamIcon />} url="/the-team">
+              Meet the team
+            </Button>
           </Box>
         </Box>
-      </PageSection>
-    </Page>
+        <Box className={classes.panel}>
+          <Typography variant="h3" component="h2" gutterBottom>
+            Nisi elit pariatur
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Est ullamco eiusmod ipsum do deserunt eiusmod laborum ex est ex ullamco incididunt laborum. Minim cillum sint dolore cupidatat do
+            Lorem ea. Velit fugiat dolor esse fugiat sunt ullamco. Dolor est occaecat consequat enim qui fugiat officia.
+          </Typography>
+          <Box m="auto" width="max-content">
+            <Button color="secondary" variant="outlined" component={Link} noLinkStyling startIcon={<TeamIcon />} url="/the-team">
+              Quis officia nisi
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </PageSection>
   )
 }
