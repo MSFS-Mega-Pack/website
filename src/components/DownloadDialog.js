@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@material-ui/core'
 
-import constants from '../data/constants.json'
+import MegapackData from '../data/megapackData.json'
 import { useSnackbar } from 'notistack'
 
 export default function DownloadDialog({ onClose }) {
@@ -17,7 +17,7 @@ export default function DownloadDialog({ onClose }) {
           download.
         </Typography>
         <Typography variant="body1" paragraph component="p">
-          <strong>The mega pack is approximately {constants.data.megapackSize.human}.</strong>
+          <strong>The mega pack is approximately {MegapackData.size.gigabytes} GB.</strong>
         </Typography>
       </DialogContent>
       <DialogActions>
@@ -28,7 +28,7 @@ export default function DownloadDialog({ onClose }) {
           variant="contained"
           onClick={() => {
             enqueueSnackbar('Download starting...', { variant: 'success' })
-            window.open(constants.keyUrls.megapackDownloadUrl, '_blank')
+            window.open(MegapackData.size.url, '_blank')
             onClose()
           }}
         >
