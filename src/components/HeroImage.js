@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { makeStyles, useTheme } from '@material-ui/core'
+import { Box, makeStyles, Typography, useTheme } from '@material-ui/core'
 import PageSection from './PageSection'
 
 import ArrowDownIcon from 'mdi-react/ExpandMoreIcon'
@@ -81,22 +81,33 @@ export default function HeroImage({ scrollCta, src, children, overlay, overlayOp
 }
 
 const useScrollCtaStyles = makeStyles(theme => ({
-  scrollCta: {
+  ctaContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
     position: 'absolute',
     left: '50%',
     transform: 'translateX(-50%)',
     bottom: theme.spacing(4),
+    textAlign: 'center',
+  },
+  text: {
+    opacity: 0.75,
+    textShadow: `-1px -1px 0 #000, 1px -1px 0 #000, 1px 1px 0 #000, -1px 1px 0 #000`,
+  },
+  scrollCta: {
     animation: `$scrollBob 2s infinite ${theme.transitions.easing.easeOut}`,
   },
   '@keyframes scrollBob': {
     '0%': {
-      transform: 'translateX(-50%) translateY(0)',
+      transform: 'translateY(0)',
     },
     '75%': {
-      transform: 'translateX(-50%)translateY(8px)',
+      transform: 'translateY(8px)',
     },
     '100%': {
-      transform: 'translateX(-50%) translateY(0)',
+      transform: 'translateY(0)',
     },
   },
 }))
@@ -105,5 +116,12 @@ export function ScrollCta() {
   const classes = useScrollCtaStyles()
   const theme = useTheme()
 
-  return <ArrowDownIcon color={theme.palette.primary.main} size={48} className={classes.scrollCta} />
+  return (
+    <Box className={classes.ctaContainer}>
+      <ArrowDownIcon color={theme.palette.primary.main} size={48} className={classes.scrollCta} />
+      <Typography className={classes.text} variant="body2">
+        Scroll down
+      </Typography>
+    </Box>
+  )
 }
