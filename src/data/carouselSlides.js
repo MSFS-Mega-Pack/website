@@ -19,6 +19,8 @@ import PeopleIcon from 'mdi-react/AccountGroupOutlineIcon'
 
 import constants from '../data/constants.json'
 
+// Permission granted from all of the livery creators below.
+
 export default Object.freeze([
   {
     slide: {
@@ -32,6 +34,7 @@ export default Object.freeze([
     },
     darken: 0.45,
     image: { aircraft: 'A320neo', livery: 'Qantas 100-year Anniversary', author: '@라즈#3444', src: quantas100 },
+    // permission: https://u.davwheat.dev/8qxtwd.png
   },
   {
     slide: {
@@ -46,6 +49,7 @@ export default Object.freeze([
     },
     darken: 0.45,
     image: { aircraft: 'A320neo', livery: 'Malta Air', author: '@라즈#3444', src: malta },
+    // permission: https://u.davwheat.dev/8qxtwd.png
   },
   {
     slide: {
@@ -58,8 +62,8 @@ export default Object.freeze([
         newTab: true,
       },
     },
-    darken: 0.25,
-    image: { aircraft: 'A320neo', livery: 'Air France SkyTeam', author: '@Sasap#1148', src: airfranceSkyteam },
+    darken: 0.5,
+    image: { aircraft: 'TBM 930', livery: 'LoganAir', author: '@Liquidpinky#8871', src: loganair },
   },
   {
     slide: {
@@ -73,6 +77,7 @@ export default Object.freeze([
     },
     darken: 0.5,
     image: { aircraft: 'A320neo', livery: 'Asiana Airlines SkyTeam', author: '@라즈#3444', src: asianaSkyteam },
+    // permission: https://u.davwheat.dev/8qxtwd.png
   },
   {
     slide: {
@@ -94,14 +99,16 @@ export default Object.freeze([
   {
     darken: 0.5,
     image: { aircraft: 'Cessna Grand Caravan 208 B', livery: 'Dodo Airlines', author: '@라즈#3444', src: dalCaravan },
+    // permission: https://u.davwheat.dev/8qxtwd.png
   },
   {
     darken: 0.5,
     image: { aircraft: 'A320neo', livery: 'Korean Airlines', author: '@라즈#3444', src: koreanAirA320 },
+    // permission: https://u.davwheat.dev/8qxtwd.png
   },
   {
-    darken: 0.5,
-    image: { aircraft: 'TBM 930', livery: 'LoganAir', author: '@Liquidpinky#8871', src: loganair },
+    darken: 0.25,
+    image: { aircraft: 'A320neo', livery: 'Air France SkyTeam', author: '@Sasap#1148', src: airfranceSkyteam },
   },
   {
     darken: 0.5,
@@ -110,5 +117,6 @@ export default Object.freeze([
   {
     darken: 0.4,
     image: { aircraft: 'Boeing 787', livery: 'Virgin Atlantic', author: '@Krake802#8172', src: virgin },
+    // permission: https://u.davwheat.dev/Nx0uQD.png
   },
 ])
