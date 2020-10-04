@@ -3,13 +3,11 @@ import React from 'react'
 import SEO from '../components/SEO'
 import Page from '../components/Page'
 import PageSection from '../components/PageSection'
-import ShowcaseCarousel from '../components/ShowcaseCarousel'
-import CountUpOnScroll from '../components/CountUpOnScroll'
-import { Box, makeStyles, Typography } from '@material-ui/core'
-
 import HeroImage from '../components/HeroImage'
-import Masonry from 'react-masonry-css'
 import ContributorCard from '../components/ContributorCard'
+
+import { Box, makeStyles, Typography } from '@material-ui/core'
+import Masonry from 'react-masonry-css'
 
 import { getRandomImage } from '../data/images'
 import Contributors from '../data/contributors'
@@ -89,7 +87,7 @@ export default function TheTeam() {
           Developers
         </Typography>
         <Typography paragraph variant="body1">
-          It's the developer's jobs to make sure the website, livery manager and more run smoothly. Got an issue with one of these? Open a ticket
+          It's the developers' jobs to make sure the website, livery manager and more run smoothly. Got an issue with one of these? Open a ticket
           and they'll help you as best they&nbsp;can.
         </Typography>
 
