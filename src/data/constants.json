@@ -1,9 +1,5 @@
 {
   "data": {
-    "megapackSize": {
-      "gigabytes": 2.4,
-      "human": "2.4 GB"
-    },
     "discordMembers": {
       "actual": 14540,
       "display": 14000,
@@ -28,7 +24,6 @@
     }
   },
   "keyUrls": {
-    "megapackDownloadUrl": "https://liveriesmegapack.b-cdn.net/LiveriesMegaPackVersionX.1.zip",
     "discordInvite": "https://discord.gg/megapack",
     "github": "https://github.com/msfs-mega-pack",
     "managerGithubLatestRelease": "https://github.com/MSFS-Mega-Pack/MSFS2020-livery-manager/releases/latest"
