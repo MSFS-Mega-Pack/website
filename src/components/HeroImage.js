@@ -17,29 +17,10 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     position: 'relative',
   },
-  scrollCta: {
-    position: 'absolute',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    bottom: theme.spacing(4),
-    animation: `$scrollBob 2s infinite ${theme.transitions.easing.easeOut}`,
-  },
-  '@keyframes scrollBob': {
-    '0%': {
-      transform: 'translateX(-50%) translateY(0)',
-    },
-    '75%': {
-      transform: 'translateX(-50%)translateY(8px)',
-    },
-    '100%': {
-      transform: 'translateX(-50%) translateY(0)',
-    },
-  },
 }))
 
 export default function HeroImage({ scrollCta, src, children, overlay, overlayOpacity }) {
   const classes = useStyles()
-  const theme = useTheme()
 
   function GenerateBackgroundImages(overlay, overlayOpacity, src) {
     const overlayCode = `linear-gradient(rgba(0,0,0,${overlayOpacity || 0.5}), rgba(0,0,0,${overlayOpacity || 0.5}))`
@@ -94,7 +75,35 @@ export default function HeroImage({ scrollCta, src, children, overlay, overlayOp
   return (
     <PageSection className={clsx(classes.root, bgClasses.background)} fullWidth fullHeight="firstElement">
       {children}
-      {scrollCta && <ArrowDownIcon color={theme.palette.primary.main} size={48} className={classes.scrollCta} />}
+      {scrollCta && <ScrollCta />}
     </PageSection>
   )
+}
+
+const useScrollCtaStyles = makeStyles(theme => ({
+  scrollCta: {
+    position: 'absolute',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    bottom: theme.spacing(4),
+    animation: `$scrollBob 2s infinite ${theme.transitions.easing.easeOut}`,
+  },
+  '@keyframes scrollBob': {
+    '0%': {
+      transform: 'translateX(-50%) translateY(0)',
+    },
+    '75%': {
+      transform: 'translateX(-50%)translateY(8px)',
+    },
+    '100%': {
+      transform: 'translateX(-50%) translateY(0)',
+    },
+  },
+}))
+
+export function ScrollCta() {
+  const classes = useScrollCtaStyles()
+  const theme = useTheme()
+
+  return <ArrowDownIcon color={theme.palette.primary.main} size={48} className={classes.scrollCta} />
 }
