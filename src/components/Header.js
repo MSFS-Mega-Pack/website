@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/styles'
 const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(1),
+    color: 'black',
   },
 }))
 
@@ -20,7 +21,7 @@ export default function Header() {
     <>
       <AppBar id="appBar">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="secondary" onClick={() => setDrawerOpen(true)}>
+          <IconButton className={classes.menuButton} onClick={() => setDrawerOpen(true)}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6">Livery Mega Pack</Typography>
