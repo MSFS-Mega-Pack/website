@@ -10,7 +10,9 @@ import Statistics from '../components/Statistics'
 import { Box, Button, makeStyles, Typography } from '@material-ui/core'
 
 import TeamIcon from 'mdi-react/AccountGroupOutlineIcon'
-import BlogIcon from 'mdi-react/NewspaperVariantMultipleOutlineIcon'
+import DownloadIcon from 'mdi-react/DownloadOutlineIcon'
+import ManagerIcon from 'mdi-react/ToolboxOutlineIcon'
+// import BlogIcon from 'mdi-react/NewspaperVariantMultipleOutlineIcon'
 
 const useStyles = makeStyles(theme => ({
   panel: {
@@ -21,6 +23,8 @@ const useStyles = makeStyles(theme => ({
     background: 'rgba(0, 0, 0, 0.6)',
     flex: '1',
     maxWidth: 800,
+    flexBasis: '45%',
+    marginBottom: theme.spacing(4),
     [theme.breakpoints.up('md')]: {
       '&:nth-child(1)': {
         marginRight: theme.spacing(4),
@@ -62,6 +66,7 @@ export default function Home() {
       </PageSection>
 
       <Statistics />
+
       <MainLinks />
     </Page>
   )
@@ -73,6 +78,20 @@ function MainLinks() {
   return (
     <PageSection fullWidth>
       <Box display="flex" width="100%" justifyContent="center" flexWrap="wrap">
+        <Box className={classes.panel}>
+          <Typography variant="h3" component="h2" gutterBottom>
+            Download the Megapack
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Over 100 people contribute in some way to the livery mega pack, whether it's by creating their own liveries, contributing to
+            distribution costs, developing projects, or providing support to community members.
+          </Typography>
+          <Box m="auto" mb={0} width="max-content">
+            <Button color="secondary" variant="outlined" component={Link} noLinkStyling startIcon={<TeamIcon />} url="/the-team">
+              Meet the team
+            </Button>
+          </Box>
+        </Box>
         <Box className={classes.panel}>
           <Typography variant="h3" component="h2" gutterBottom>
             The mega pack team
@@ -89,6 +108,20 @@ function MainLinks() {
         </Box>
         <Box className={classes.panel}>
           <Typography variant="h3" component="h2" gutterBottom>
+            The mega pack team
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Over 100 people contribute in some way to the livery mega pack, whether it's by creating their own liveries, contributing to
+            distribution costs, developing projects, or providing support to community members.
+          </Typography>
+          <Box m="auto" mb={0} width="max-content">
+            <Button color="secondary" variant="outlined" component={Link} noLinkStyling startIcon={<TeamIcon />} url="/the-team">
+              Meet the team
+            </Button>
+          </Box>
+        </Box>
+        {/* <Box className={classes.panel}>
+          <Typography variant="h3" component="h2" gutterBottom>
             The checklist
           </Typography>
           <Typography variant="body1" paragraph>
@@ -100,7 +133,7 @@ function MainLinks() {
               Read the blog
             </Button>
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </PageSection>
   )
