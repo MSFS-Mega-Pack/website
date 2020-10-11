@@ -28,6 +28,9 @@ export default responsiveFontSizes(
         variant: 'contained',
         color: 'primary',
       },
+      MuiTextField: {
+        variant: 'outlined',
+      },
     },
     overrides: {
       MuiTypography: {
@@ -38,6 +41,10 @@ export default responsiveFontSizes(
       MuiPaper: {
         rounded: {
           borderRadius: 8,
+        },
+        outlined: {
+          background: 'rgba(0, 0, 0, 0.6)',
+          borderColor: 'black',
         },
         root: {
           background: 'rgba(0, 0, 0, 0.6)',
@@ -68,6 +75,11 @@ export default responsiveFontSizes(
       MuiButton: {
         root: {
           fontWeight: 600,
+        },
+      },
+      MuiInputBase: {
+        input: {
+          lineHeight: '1.5',
         },
       },
     },
